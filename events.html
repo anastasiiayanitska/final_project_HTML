@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header_right">
+        <div class="header_right_img">
+          <a href="index.html">
+            <img src="./images/meetup_logo.svg" alt="" />
+          </a>
+        </div>
+        <div class="header_right_search">
+          <input
+            type="text"
+            placeholder="Search events"
+            class="search_input search_input_first"
+          />
+          <input
+            type="text"
+            value="Mountain View, CA"
+            class="search_input search_input_last"
+          />
+          <button class="search_btn">
+            <img src="./images/search_white.svg" alt="" />
+          </button>
+        </div>
+      </div>
+      <div class="header_left">
+        <a href="#" class="engl"> English</a>
+        <a href="#">Log in</a>
+        <button class="blue_btn">Sign up</button>
+      </div>
+    </header>
+
+    <section class="main">
+      <div class="events_title_page_events">
+        <div class="events_title_right_page_events">
+          <h1>Events near New York, NY</h1>
+          <a href="#" class="btn_more">Events</a>
+        </div>
+        <div class="events_title_left_page_events">
+          <p>Find events near</p>
+          <h2>New York, NY</h2>
+        </div>
+      </div>
+      <div class="maps">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20352.37309739455!2d-74.12609478536781!3d40.687223437183114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2z0J3RjNGOLdCZ0L7RgNC6LCDQodC_0L7Qu9GD0YfQtdC90ZYg0KjRgtCw0YLQuCDQkNC80LXRgNC40LrQuA!5e0!3m2!1suk!2sde!4v1726062618554!5m2!1suk!2sde"
+          width="350"
+          height="285"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div class="events_filter">
+        <div class="events_filter_list">
+          <input type="checkbox" id="list_distance" />
+          <label for="list_distance"> <h1>Any distance</h1></label>
+          <ul id="distance" class="list_filter list_filter_show">
+            <li>5</li>
+            <li>10</li>
+            <li>15</li>
+            <li>20</li>
+            <li>25</li>
+            <li>all</li>
+          </ul>
+        </div>
+        <div class="events_filter_list">
+          <input type="checkbox" id="list_type" />
+          <label for="list_type"> <h1>Any type</h1></label>
+          <ul id="type" class="list_filter list_filter_show">
+            <li>online</li>
+            <li>offline</li>
+            <li>all</li>
+          </ul>
+        </div>
+        <div class="events_filter_list">
+          <input type="checkbox" id="list_category" />
+          <label for="list_category"> <h1>Any category</h1></label>
+
+          <ul id="category" class="list_filter list_filter_show">
+            <li>Social Activities</li>
+            <li>Hobbies and Passions</li>
+            <li>Health and Wellbeing</li>
+            <li>Business</li>
+            <li>Technology</li>
+            <li>all</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="list_event"></div>
+    </section>
+
+    <footer>
+      <div class="footer_content">
+        <div class="footer_title">
+          <h2>Create your own Meetup group.</h2>
+          <button class="btn_footer"><h2>Get Started</h2></button>
+        </div>
+        <div class="footer_list">
+          <ul class="your_account">
+            <li><a href="#" id="list_title">Your Account</a></li>
+            <li><a href="#">Sign up</a></li>
+            <li><a href="#">Log in</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Become an Affiliate</a></li>
+          </ul>
+          <ul class="discover">
+            <li><a href="#" id="list_title">Discover</a></li>
+            <li><a href="#">Groups</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Topics</a></li>
+            <li><a href="#">Cities</a></li>
+            <li><a href="#">Online Events</a></li>
+            <li><a href="#">Local Guides</a></li>
+            <li><a href="#">Make Friends</a></li>
+          </ul>
+          <ul class="meetup_list">
+            <li><a href="#" id="list_title">Meetup</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Meetup Pro</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Podcast</a></li>
+          </ul>
+        </div>
+
+        <div class="follow_us">
+          <p>Follow us</p>
+          <div class="follow_us_content">
+            <div class="follow_us_content_right">
+              <img src="./images/facebook.svg" alt="" />
+              <img src="./images/Twitter.svg" alt="" />
+              <img src="./images/YouTube.svg" alt="" />
+              <img src="./images/Instagram.svg" alt="" />
+              <img src="./images/TikTok.svg" alt="" />
+            </div>
+            <div class="follow_us_content_left">
+              <img src="./images/Google Play.svg" alt="" />
+              <img src="./images/App Store.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="footer_menu">
+          <ul>
+            <li><a href="#">© 2024 Meetup</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Do Not Sell or Share My Personal Data</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

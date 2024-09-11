@@ -1,0 +1,47 @@
+@import "./variables.scss";
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 16px;
+
+}
+ul{
+    list-style: none;
+}
+body{
+   font-family: "Roboto", sans-serif;;
+}
+
+h3{
+    font-size: 42px;
+    line-height: 52px;
+    font-style: bold;
+}
+p{
+    font-size: 16px;
+    color: $basic-color;
+    line-height: 26px;
+   
+}
+h2{
+    font-size: 20px;
+    line-height: 24px;
+    font-style: bold;
+}
+
+h5{
+    font-size: 14px;
+    color: $normal-grey;
+    line-height: 30px;
+}
+h1{
+    font-size: 28px;
+    line-height: 36px;
+}
