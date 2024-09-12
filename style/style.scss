@@ -500,6 +500,7 @@ label {
 }
 .new_event {
   @include flex-horizontal;
+  flex-wrap: nowrap;
   max-width: 605px;
   align-items: start;
   padding-top: 16px;

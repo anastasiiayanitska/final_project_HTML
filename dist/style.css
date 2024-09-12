@@ -616,6 +616,7 @@ label {
   gap: 22px;
   align-items: center;
   flex-wrap: wrap;
+  flex-wrap: nowrap;
   max-width: 605px;
   align-items: start;
   padding-top: 16px;
