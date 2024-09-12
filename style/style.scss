@@ -207,6 +207,7 @@
 }
 .categories_list {
   @include flex-horizontal;
+  flex-wrap: nowrap;
   margin-top: 24px;
   margin-bottom: 64px;
   & li {

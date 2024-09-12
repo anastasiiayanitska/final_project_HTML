@@ -280,6 +280,7 @@ button {
   gap: 22px;
   align-items: center;
   flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-top: 24px;
   margin-bottom: 64px;
 }
