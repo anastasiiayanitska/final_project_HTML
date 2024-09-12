@@ -72,10 +72,14 @@ const eventsStore = [
 const category = document.querySelector("#category");
 const type = document.querySelector("#type");
 const distance = document.querySelector("#distance");
+const date = document.querySelector("#date");
+
 
 const categoryBtn = document.querySelector("#list_category");
 const typeBtn = document.querySelector("#list_type");
 const distanceBtn = document.querySelector("#list_distance");
+const dateBtn = document.querySelector("#list_date");
+
 
 const filters = {
   category: "",
@@ -87,6 +91,9 @@ const filters = {
 categoryBtn.addEventListener("click", () => {
   category.classList.toggle("list_filter_show");
 });
+dateBtn.addEventListener("click", () => {
+  date.classList.toggle("list_filter_show");
+});
 typeBtn.addEventListener("click", () => {
   type.classList.toggle("list_filter_show");
 });
@@ -97,6 +104,12 @@ distanceBtn.addEventListener("click", () => {
 
 function getClickedItemValue(list, callback) {
     list.addEventListener("click", function (event) {
+      category.classList.add("list_filter_show");
+      type.classList.add("list_filter_show");
+      distance.classList.add("list_filter_show");
+      date.classList.add("list_filter_show");
+
+    
       if (event.target.tagName === "LI") {
       let clickedValue = event.target.textContent;
       if (clickedValue === "all") {
@@ -124,8 +137,20 @@ function filterEvents(events, filters) {
     if (filters.type && event.type !== filters.type) {
       return false;
     }
+    if (filters.date) {
+      const eventDate = new Date(event.date);
+      const filterDate = new Date(filters.date);
 
-    return true;
+      
+      if (
+        eventDate.getFullYear() !== filterDate.getFullYear() ||
+        eventDate.getMonth() !== filterDate.getMonth() ||
+        eventDate.getDate() !== filterDate.getDate()
+      ) {
+        return false;
+      }
+    }
+        return true;
   });
 }
 
@@ -157,6 +182,11 @@ function renderEvents(arr) {
 
 getClickedItemValue(type, function (value) {
   filters.type = value; 
+  const filteredEvents = filterEvents(updatedEventsStore, filters);
+  renderEvents(filteredEvents);
+});
+getClickedItemValue(date, function (value) {
+  filters.date = value; 
   const filteredEvents = filterEvents(updatedEventsStore, filters);
   renderEvents(filteredEvents);
 });

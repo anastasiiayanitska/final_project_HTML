@@ -8,6 +8,7 @@ a {
   text-decoration: none;
   color: inherit;
   font-size: 16px;
+  cursor: pointer;
 }
 
 ul {
@@ -47,6 +48,10 @@ h1 {
   line-height: 36px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .header {
   display: block;
   max-width: 1500px;
@@ -60,6 +65,7 @@ h1 {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   gap: 40px;
   font-size: 16px;
 }
@@ -67,6 +73,7 @@ h1 {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   font-size: 14px;
   font-weight: 500;
 }
@@ -150,6 +157,7 @@ h1 {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 30px;
   justify-content: space-between;
 }
@@ -157,6 +165,7 @@ h1 {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .events_title_right h2 {
   position: relative;
@@ -270,6 +279,7 @@ h1 {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 24px;
   margin-bottom: 64px;
 }
@@ -296,6 +306,7 @@ h1 {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   gap: 40px;
   text-align: center;
 }
@@ -308,6 +319,7 @@ h1 {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   gap: 30px;
   margin-top: 24px;
   margin-bottom: 65px;
@@ -364,6 +376,7 @@ h1 {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   gap: 32px;
   align-items: start;
 }
@@ -402,6 +415,7 @@ footer {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   padding-top: 25px;
   padding-bottom: 25px;
   position: relative;
@@ -422,6 +436,7 @@ footer {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   gap: 270px;
   align-items: start;
 }
@@ -445,6 +460,7 @@ footer {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .follow_us_content_right img {
@@ -458,6 +474,7 @@ footer {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   padding-top: 25px;
   padding-bottom: 40px;
 }
@@ -472,6 +489,7 @@ footer {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: start;
   margin-top: 77px;
@@ -570,11 +588,15 @@ label {
 }
 
 #type {
-  width: 80px;
+  width: 70px;
 }
 
 #category {
   width: 110px;
+}
+
+#any_date h1 {
+  padding-right: 80px;
 }
 
 .list_event {
@@ -592,6 +614,7 @@ label {
   display: flex;
   gap: 22px;
   align-items: center;
+  flex-wrap: wrap;
   max-width: 605px;
   align-items: start;
   padding-top: 16px;
@@ -926,6 +949,24 @@ label {
   }
   .new_event h4 {
     font-size: 10px;
+  }
+}
+@media (max-width: 1024px) {
+  .main {
+    margin: 0 auto;
+    max-width: 900px;
+  }
+  .join::before {
+    right: -340px;
+  }
+  .events_list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .meetup_content {
+    max-width: 450px;
+  }
+  .footer_content {
+    max-width: 900px;
   }
 }
 
