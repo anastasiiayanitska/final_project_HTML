@@ -813,30 +813,34 @@ label {
       display: none;
     }
   }
-  .events_title_left_page_events,
-  .maps {
-    display: none;
-  }
+ 
   .events_filter {
     & h1 {
-      font-size: 12px;
-      padding: 10px 40px 10px 10px;
+      font-size: 10px;
+      padding: 10px 35px 10px 10px;
+      gap: 10px;
     }
     &_list h1::before {
       top: 10px;
     }
   }
   .list_filter {
-    top: 32px;
+    top: 35px;
   }
   #distance {
-    width: 90px;
+    width: 60px;
   }
   #type {
-    width: 70px;
+    width: 50px;
   }
   #category {
-    width: 100px;
+    width: 80px;
+  }
+  #any_date{
+    width: 80px ;
+    & h1{
+      padding-right: 20px;
+    }
   }
 
   .new_event {
@@ -859,6 +863,10 @@ label {
     & h4 {
       font-size: 10px;
     }
+  }
+  .events_title_left_page_events,
+  .maps {
+    display: none;
   }
 }
 @media (max-width: 1024px) {
