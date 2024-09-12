@@ -80,25 +80,57 @@ const typeBtn = document.querySelector("#list_type");
 const distanceBtn = document.querySelector("#list_distance");
 const dateBtn = document.querySelector("#list_date");
 
+const logoCategory = document.querySelector('.logo_up_category ')
+const logoDate = document.querySelector('.logo_up_date ')
+const logoType = document.querySelector('.logo_up_type ')
+const logoDistance = document.querySelector('.logo_up_distance ')
 
 const filters = {
   category: "",
   distance: "",
   type: "",
+  date:""
 };
 
+const listDistance = document.querySelector('#list_distance')
+const listType = document.querySelector('#list_type')
+const listDate = document.querySelector('#list_date')
+const listCategory = document.querySelector('#list_category')
+const btnReset = document.querySelector('.reset_filter')
+
+btnReset.addEventListener("click", () => {
+  listType.textContent = "Any type";
+  listDate.textContent = "Any date";
+  listCategory.textContent = "Any category";
+  listDistance.textContent = "Any distance";
+  filters = {
+    category: "",
+    distance: "",
+    type: "",
+    date:""
+  };
+renderEvents(updatedEventsStore);
+
+})
 
 categoryBtn.addEventListener("click", () => {
   category.classList.toggle("list_filter_show");
+  logoCategory.classList.toggle('logo_down')
 });
 dateBtn.addEventListener("click", () => {
   date.classList.toggle("list_filter_show");
+  logoDate.classList.toggle('logo_down')
+
 });
 typeBtn.addEventListener("click", () => {
   type.classList.toggle("list_filter_show");
+  logoType.classList.toggle('logo_down')
+
 });
 distanceBtn.addEventListener("click", () => {
   distance.classList.toggle("list_filter_show");
+  logoDistance.classList.toggle('logo_down')
+
 });
 
 
@@ -108,8 +140,11 @@ function getClickedItemValue(list, callback) {
       type.classList.add("list_filter_show");
       distance.classList.add("list_filter_show");
       date.classList.add("list_filter_show");
+      logoCategory.classList.remove('logo_down')
+      logoDate.classList.remove('logo_down')
+      logoType.classList.remove('logo_down')
+      logoDistance.classList.remove('logo_down')
 
-    
       if (event.target.tagName === "LI") {
       let clickedValue = event.target.textContent;
       if (clickedValue === "all") {
@@ -127,10 +162,10 @@ function filterEvents(events, filters) {
     }
 
     if (
-      filters.distance &&
-      event.type === "offline" &&
-      event.distance > filters.distance
+      filters.distance && event.distance > parseInt(filters.distance)
     ) {
+      console.log(event.distance, parseInt(filters.distance), events, filters)
+
       return false;
     }
 
@@ -150,8 +185,12 @@ function filterEvents(events, filters) {
         return false;
       }
     }
+    
+
         return true;
   });
+  
+  
 }
 
 
@@ -170,7 +209,7 @@ function renderEvents(arr) {
             <div class="event_left">
               <p>${element.date}</p>
               <h2>${element.title}</h2>
-              <h5>${element.category} + ${element.distance}</h5>
+              <h5>${element.category} + "Distance :" +${element.distance}</h5>
               <h4>${element.attendees}</h4>
             </div>
           </div>
@@ -180,27 +219,45 @@ function renderEvents(arr) {
 }
 
 
+
+
 getClickedItemValue(type, function (value) {
   filters.type = value; 
   const filteredEvents = filterEvents(updatedEventsStore, filters);
   renderEvents(filteredEvents);
+  listType.textContent = filters.type;
+  if(filters.type == ""){
+  listType.textContent = "Any type";
+  }
 });
 getClickedItemValue(date, function (value) {
   filters.date = value; 
   const filteredEvents = filterEvents(updatedEventsStore, filters);
   renderEvents(filteredEvents);
+  listDate.textContent = filters.date;
+  if(filters.date == ""){
+  listDate.textContent = "Any date";
+  }
 });
 
 getClickedItemValue(category, function (value) {
   filters.category = value;
   const filteredEvents = filterEvents(updatedEventsStore, filters);
   renderEvents(filteredEvents); 
+  listCategory.textContent = filters.category;
+  if(filters.category == ""){
+  listCategory.textContent = "Any category";
+  }
 });
 
 getClickedItemValue(distance, function (value) {
   filters.distance = value; 
   const filteredEvents = filterEvents(updatedEventsStore, filters);
   renderEvents(filteredEvents); 
+  listDistance.textContent = filters.distance;
+  if(filters.distance == ""){
+  listDistance.textContent = "Any distance";
+  }
 });
 
 function formatDate(date) {
@@ -227,3 +284,4 @@ function updateEventsWithFormattedDates(events) {
 
 const updatedEventsStore = updateEventsWithFormattedDates(eventsStore);
 renderEvents(updatedEventsStore);
+

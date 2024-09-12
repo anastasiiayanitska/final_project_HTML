@@ -5,7 +5,7 @@
 
 .header {
   display: block;
-  max-width: 1500px;
+  max-width: 1900px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -70,13 +70,17 @@
 }
 .main {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .join {
   max-width: 600px;
   position: relative;
   margin-top: 77px;
   margin-bottom: 98px;
+  margin-left: -30%;
 
   &::before {
     content: "";
@@ -95,6 +99,7 @@
   }
 }
 .events {
+  max-width: 1600px;
   &_title {
     @include flex-horizontal;
     margin-bottom: 30px;
@@ -128,11 +133,12 @@
         margin: 8px 0;
       }
       & p {
-        margin-left: 25px;
+        line-height: 35px;
+        margin-left: 30px;
         margin-bottom: 12px;
         position: relative;
         &::after {
-          left: -25px;
+          left: -35px;
           top: 3px;
           position: absolute;
           content: url(../images/date.svg);
@@ -142,10 +148,11 @@
   }
 }
 #events_done {
+  line-height: 30px;
   position: relative;
-  margin-left: 25px;
+  margin-left: 30px;
   &::after {
-    left: -25px;
+    left: -35px;
     top: 0;
     content: url(../images/done.svg);
     position: absolute;
@@ -153,9 +160,9 @@
 }
 #events_ticket {
   position: relative;
-  margin-left: 42px;
+  margin-left: 47px;
   &::after {
-    left: -25px;
+    left: -35px;
     top: 0;
     content: url(../images/tiket.svg);
     position: absolute;
@@ -170,10 +177,10 @@
 .events_list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 36px;
+  gap: 50px;
 }
 .meetup {
-  max-width: 1200px;
+  width: 1200px;
   background-color: $blue-background;
   border-radius: 8px;
   position: relative;
@@ -318,7 +325,7 @@ footer {
   background: none;
 }
 .footer_content {
-  max-width: 1120px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 .footer_title {
@@ -328,7 +335,7 @@ footer {
   position: relative;
   &::after {
     content: "";
-    width: 1120px;
+    width: 1500px;
     height: 1px;
     opacity: 50%;
     background-color: $light-grey;
@@ -340,7 +347,7 @@ footer {
   margin-top: 50px;
   margin-bottom: 40px;
   @include flex-horizontal;
-  gap: 270px;
+  gap: 400px;
   align-items: start;
 
   & a {
@@ -383,7 +390,9 @@ footer {
   }
 }
 
-
+.main_header{
+  width: 1200px;
+}
 .events_title_page_events {
   @include flex-horizontal;
   justify-content: space-between;
@@ -418,11 +427,43 @@ footer {
 .events_filter {
   display: flex;
   gap: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 116px;
+  align-items: center;
+  // overflow-x: auto;          
+  // white-space: nowrap; 
+  position: relative;
+  margin-top: 15px;
+  
+  .list_filter {
+    overflow-x: auto; 
+    position: absolute;
+    top: 45px;
+    left: 15px;
+    background-color: #f6f7f8;
+    border: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 999;
+    &_show {
+      transition: all 1s ease-out;
+      display: none;
+    }
+    & li {
+      font-size: 12px;
+      padding: 10px;
+      border-top: 1px solid $light-grey;
+      cursor: pointer;
+    }
+  }
+  
+
 }
+
 .events_filter_list {
   position: relative;
-   & h1 {
+ 
+ 
+   & h1{
     font-size: 14px;
     line-height: 14px;
     padding: 16px 40px 16px 16px;
@@ -430,66 +471,25 @@ footer {
     border: none;
     border-radius: 40px;
     position: relative;
-    &::before {
-      content: "";
-      background-image: url("../images/filter_logo.svg");
+  
+  }
+  & .logo_up_category , .logo_up_date , .logo_up_type , .logo_up_distance{
       width: 14px;
       height: 14px;
       position: absolute;
       top: 15px;
       right: 15px;
       transition: transform 0.3s ease;
-    }
   }
-}
-
-input[type="checkbox"]:checked + label h1::before {
+  & .logo_down{
   transform: rotate(180deg);
-}
 
-input[type="checkbox"] {
-  display: none;
-}
-label {
-  cursor: pointer;
-  display: inline-block;
-}
-.list_filter {
-  position: absolute;
-  top: 45px;
-  left: 15px;
-  background-color: #f6f7f8;
-  border: none;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  z-index: 999;
-  &_show {
-    transition: all 1s ease-out;
-    display: none;
   }
-  & li {
-    font-size: 12px;
-    padding: 10px;
-    border-top: 1px solid $light-grey;
-    cursor: pointer;
   }
-}
 
-#distance {
-  width: 100px;
-}
-#type {
-  width: 70px;
-}
-#category {
-  width: 110px;
-}
-#any_date{
-  & h1{
-  padding-right: 80px;
-}
-}
+
 .list_event {
+  width: 1200px;
   margin-bottom: 60px;
   position: relative;
 }
@@ -523,7 +523,200 @@ label {
   & p {
     line-height: 18px;
   }
+ 
 }
+#distance{
+  width: 100px;
+}
+#type{
+  width: 75px;
+}
+#category{
+  width: 105px;
+}
+#date{
+  width: 80px;
+}
+
+
+
+@media (max-width: 1600px){
+  .footer_content{
+    max-width: 1200px;
+  }
+  .footer_title::after {
+    max-width: 1200px;
+  }
+
+}
+@media (max-width:1280px){
+  .header{
+    max-width: 1200px;
+  }
+  .main{
+    max-width: 1000px;
+  }
+  .join::before{
+    right: -400px;
+  }
+  .footer_content{
+    max-width: 1000px;
+  }
+  .footer_list{
+    gap: 270px;
+  }
+  .footer_title::after {
+    max-width: 1000px;
+  }
+  .events{
+    max-width: 1000px;
+  }
+  .events_list{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .meetup {
+    width: 1000px;
+  }
+  .meetup_content {
+    max-width: 600px;
+}
+.categories_list{
+  flex-wrap: wrap;
+}
+.maps{
+  display: none;
+}
+.main_header {
+  width: 1000px;
+}
+.list_event {
+  width: 1000px;
+}
+}
+
+@media (max-width: 1024px) {
+  
+  .main {
+    margin: 0 auto;
+    max-width: 900px;
+  }
+  .join::before{
+    right: -340px;
+  }
+  .events_list{
+    grid-template-columns: repeat(3 , 1fr)
+  }
+  .meetup_content{
+    max-width: 450px;
+  }
+  .footer_content{
+    max-width: 900px;
+  }
+  .main_header {
+    width: 800px;
+  }
+  .list_event {
+    width: 800px;
+  }
+  .footer_title::after {
+    max-width: 800px;
+  }
+}
+
+@media(max-width: 768px){
+  .header {
+    width: 760px;
+        padding: 10px;
+
+    &_right {
+         font-size: 10px;
+      &_img {
+        & img {
+          width: 100px;
+          margin-left: -20px;
+        }
+      }
+    }
+    &_left {
+      font-size: 12px;
+      gap: 10px;
+    }
+  }
+
+  .blue_btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  .search_input {
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    &_last {
+      display: none;
+    }
+  }
+
+  .search_btn {
+    top: 45px;
+    left: 292px;
+  }
+  .main {
+       max-width: 600px;
+  }
+  .join::before {
+    right: 0;
+    bottom: -250px;
+}
+.join{
+  margin-bottom: 270px;
+  max-width: 500px;
+}
+.events{
+  max-width: 600px;
+}
+.events_list {
+  grid-template-columns: repeat(2, 1fr);
+}
+.meetup {
+  width: 600px;
+  padding-top: 240px;
+  &::before{
+    top: 20px;
+    right:146px ;
+  }
+}
+.footer_content {
+  max-width: 600px;
+}
+.footer_title::after {
+  max-width: 600px;
+}
+.footer_list {
+  gap: 70px;
+}
+.follow_us {
+  &_content {
+    gap: 10px;
+
+    &_left {
+      display: none;
+    }
+  }
+}
+
+.footer_menu ul {
+  & li:nth-child(n + 2) a {
+    display: none;
+  }
+}
+.main_header {
+  width: 600px;
+}
+.list_event {
+  width: 600px;
+}
+}
+
 
 @media (max-width: 440px) {
   .header {
@@ -569,9 +762,11 @@ label {
     max-width: 400px;
   }
   .join {
+    width: 350px;
     padding: 10px;
     margin-top: 70px;
     margin-bottom: 45px;
+    margin-left: 0;
 
     &::before {
       width: 215px;
@@ -647,7 +842,7 @@ label {
           line-height: 20px;
           margin-bottom: 0;
           &::after {
-            left: -20px;
+            left: -22px;
             top: 0;
           }
         }
@@ -663,6 +858,7 @@ label {
     margin-left: 25px;
     &::after {
       top: -5px;
+      left: -27px;
     }
   }
   #events_ticket {
@@ -671,6 +867,7 @@ label {
     margin-left: 42px;
     &::after {
       top: -5px;
+      left: -27px;
     }
   }
 
@@ -681,7 +878,7 @@ label {
   }
   #btn_more_events {
     position: absolute;
-    bottom: 610px;
+    bottom: 700px;
     left: 150px;
   }
   #btn_more_online_events {
@@ -690,6 +887,8 @@ label {
     left: 150px;
   }
   .meetup {
+    text-align: center;
+    width: 350px;
     margin-top: 60px;
     padding: 16px 26px;
     & h1 {
@@ -709,11 +908,9 @@ label {
       margin-bottom: 10px;
     }
   }
-  .red_btn {
-    margin-left: 85px;
-  }
+ 
   .categories_list {
-    margin-left: 50px;
+   
     display: grid;
     grid-template-columns: repeat(2, 135px);
     gap: 25px;
@@ -800,21 +997,7 @@ label {
   #list_title {
     font-size: 14px;
   }
-  .follow_us {
-    &_content {
-      gap: 10px;
-
-      &_left {
-        display: none;
-      }
-    }
-  }
-
-  .footer_menu ul {
-    & li:nth-child(n + 2) a {
-      display: none;
-    }
-  }
+ 
  
   .events_filter {
     & h1 {
@@ -829,21 +1012,7 @@ label {
   .list_filter {
     top: 35px;
   }
-  #distance {
-    width: 60px;
-  }
-  #type {
-    width: 50px;
-  }
-  #category {
-    width: 80px;
-  }
-  #any_date{
-    width: 80px ;
-    & h1{
-      padding-right: 20px;
-    }
-  }
+ 
 
   .new_event {
     max-width: 370px;
@@ -870,25 +1039,25 @@ label {
   .maps {
     display: none;
   }
+  .main_header {
+    width: 400px;
 }
-@media (max-width: 1024px) {
-  
-  .main {
-    margin: 0 auto;
-    max-width: 900px;
-  }
-  .join::before{
-    right: -340px;
-  }
-  .events_list{
-    grid-template-columns: repeat(3 , 1fr)
-  }
-  .meetup_content{
-    max-width: 450px;
-  }
-  .footer_content{
-    max-width: 900px;
-  }
-
+.list_event {
+  width: 400px;
+}
 }
 
+.events_card:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.new_event:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.btn_more:hover {
+  font-weight: 600;
+
+}

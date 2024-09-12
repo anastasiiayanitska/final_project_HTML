@@ -66,22 +66,28 @@
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
+   
       <div class="events_filter">
         <div class="events_filter_list">
-          <input type="checkbox" id="list_distance" />
-          <label for="list_distance"> <h1>Any distance</h1></label>
+
+          <h1 id="list_distance">Any distance</h1><img class="logo_up_distance logo_down" src="./images/filter_logo.svg" alt="">
+
           <ul id="distance" class="list_filter list_filter_show">
             <li>5</li>
             <li>10</li>
             <li>15</li>
             <li>20</li>
             <li>25</li>
+            <li>50</li>
+            <li>75</li>
+            <li>100</li>
             <li>all</li>
           </ul>
         </div>
         <div class="events_filter_list">
-          <input type="checkbox" id="list_type" />
-          <label for="list_type"> <h1>Any type</h1></label>
+
+          <h1 id="list_type">Any type</h1><img class="logo_up_type logo_down" src="./images/filter_logo.svg" alt="">
+
           <ul id="type" class="list_filter list_filter_show">
             <li>online</li>
             <li>offline</li>
@@ -89,8 +95,8 @@
           </ul>
         </div>
         <div class="events_filter_list">
-          <input type="checkbox" id="list_category" />
-          <label for="list_category"> <h1>Any category</h1></label>
+      
+            <h1 id="list_category">Any category</h1><img class="logo_up_category logo_down" src="./images/filter_logo.svg" alt="">
 
           <ul id="category" class="list_filter list_filter_show">
             <li>Social Activities</li>
@@ -102,8 +108,8 @@
           </ul>
         </div>
         <div class="events_filter_list">
-          <input type="checkbox" id="list_date" />
-          <label for="list_date" id="any_date"> <h1>Any date</h1></label>
+         
+          <h1 id="list_date">Any date</h1><img class="logo_up_date logo_down" src="./images/filter_logo.svg" alt="">
 
           <ul id="date" class="list_filter list_filter_show">
             <li>Mar 13, 11:00 AM </li>
@@ -115,7 +121,11 @@
             <li>all</li>
           </ul>
         </div>
+        <div class="reset_filter">
+                <button id="reset " class="red_btn" type="submit">Reset</button>
+        </div>
       </div>
+
     </section>
 
       <section class="list_event"></section>
