@@ -186,6 +186,7 @@ function renderEvents(arr) {
   listEvent.innerHTML = "";
 
   arr.forEach((element) => {
+    if(element.attendees===""){element.attendees="0"}
     listEvent.insertAdjacentHTML(
       "beforeend",
       `
@@ -196,8 +197,8 @@ function renderEvents(arr) {
             <div class="event_left">
               <p>${element.date}</p>
               <h2>${element.title}</h2>
-              <h5>${element.category} (+${element.distance})</h5>
-              <h4>${element.attendees}</h4>
+              <h5>${element.category}, ${element.type} (+${element.distance}km)</h5>
+              <h4>Registered: ${element.attendees}</h4>
             </div>
           </div>
         `
