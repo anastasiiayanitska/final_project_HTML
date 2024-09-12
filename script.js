@@ -196,7 +196,7 @@ function renderEvents(arr) {
             <div class="event_left">
               <p>${element.date}</p>
               <h2>${element.title}</h2>
-              <h5>${element.category} + "Distance :" +${element.distance}</h5>
+              <h5>${element.category} (+${element.distance})</h5>
               <h4>${element.attendees}</h4>
             </div>
           </div>
