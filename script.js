@@ -74,29 +74,28 @@ const type = document.querySelector("#type");
 const distance = document.querySelector("#distance");
 const date = document.querySelector("#date");
 
-
 const categoryBtn = document.querySelector("#list_category");
 const typeBtn = document.querySelector("#list_type");
 const distanceBtn = document.querySelector("#list_distance");
 const dateBtn = document.querySelector("#list_date");
 
-const logoCategory = document.querySelector('.logo_up_category ')
-const logoDate = document.querySelector('.logo_up_date ')
-const logoType = document.querySelector('.logo_up_type ')
-const logoDistance = document.querySelector('.logo_up_distance ')
+const logoCategory = document.querySelector(".logo_up_category ");
+const logoDate = document.querySelector(".logo_up_date ");
+const logoType = document.querySelector(".logo_up_type ");
+const logoDistance = document.querySelector(".logo_up_distance ");
 
 const filters = {
   category: "",
   distance: "",
   type: "",
-  date:""
+  date: "",
 };
 
-const listDistance = document.querySelector('#list_distance')
-const listType = document.querySelector('#list_type')
-const listDate = document.querySelector('#list_date')
-const listCategory = document.querySelector('#list_category')
-const btnReset = document.querySelector('.reset_filter')
+const listDistance = document.querySelector("#list_distance");
+const listType = document.querySelector("#list_type");
+const listDate = document.querySelector("#list_date");
+const listCategory = document.querySelector("#list_category");
+const btnReset = document.querySelector(".reset_filter");
 
 btnReset.addEventListener("click", () => {
   listType.textContent = "Any type";
@@ -107,45 +106,41 @@ btnReset.addEventListener("click", () => {
     category: "",
     distance: "",
     type: "",
-    date:""
+    date: "",
   };
-renderEvents(updatedEventsStore);
 
-})
+  renderEvents(updatedEventsStore);
+});
 
 categoryBtn.addEventListener("click", () => {
   category.classList.toggle("list_filter_show");
-  logoCategory.classList.toggle('logo_down')
+  logoCategory.classList.toggle("logo_down");
 });
 dateBtn.addEventListener("click", () => {
   date.classList.toggle("list_filter_show");
-  logoDate.classList.toggle('logo_down')
-
+  logoDate.classList.toggle("logo_down");
 });
 typeBtn.addEventListener("click", () => {
   type.classList.toggle("list_filter_show");
-  logoType.classList.toggle('logo_down')
-
+  logoType.classList.toggle("logo_down");
 });
 distanceBtn.addEventListener("click", () => {
   distance.classList.toggle("list_filter_show");
-  logoDistance.classList.toggle('logo_down')
-
+  logoDistance.classList.toggle("logo_down");
 });
 
-
 function getClickedItemValue(list, callback) {
-    list.addEventListener("click", function (event) {
-      category.classList.add("list_filter_show");
-      type.classList.add("list_filter_show");
-      distance.classList.add("list_filter_show");
-      date.classList.add("list_filter_show");
-      logoCategory.classList.remove('logo_down')
-      logoDate.classList.remove('logo_down')
-      logoType.classList.remove('logo_down')
-      logoDistance.classList.remove('logo_down')
+  list.addEventListener("click", function (event) {
+    category.classList.add("list_filter_show");
+    type.classList.add("list_filter_show");
+    distance.classList.add("list_filter_show");
+    date.classList.add("list_filter_show");
+    logoCategory.classList.remove("logo_down");
+    logoDate.classList.remove("logo_down");
+    logoType.classList.remove("logo_down");
+    logoDistance.classList.remove("logo_down");
 
-      if (event.target.tagName === "LI") {
+    if (event.target.tagName === "LI") {
       let clickedValue = event.target.textContent;
       if (clickedValue === "all") {
         clickedValue = "";
@@ -157,14 +152,12 @@ function getClickedItemValue(list, callback) {
 
 function filterEvents(events, filters) {
   return events.filter((event) => {
-        if (filters.category && event.category !== filters.category) {
+    if (filters.category && event.category !== filters.category) {
       return false;
     }
 
-    if (
-      filters.distance && event.distance > parseInt(filters.distance)
-    ) {
-      console.log(event.distance, parseInt(filters.distance), events, filters)
+    if (filters.distance && event.distance > parseInt(filters.distance)) {
+      console.log(event.distance, parseInt(filters.distance), events, filters);
 
       return false;
     }
@@ -176,7 +169,6 @@ function filterEvents(events, filters) {
       const eventDate = new Date(event.date);
       const filterDate = new Date(filters.date);
 
-      
       if (
         eventDate.getFullYear() !== filterDate.getFullYear() ||
         eventDate.getMonth() !== filterDate.getMonth() ||
@@ -185,17 +177,12 @@ function filterEvents(events, filters) {
         return false;
       }
     }
-    
 
-        return true;
+    return true;
   });
-  
-  
 }
 
-
 function renderEvents(arr) {
- 
   listEvent.innerHTML = "";
 
   arr.forEach((element) => {
@@ -218,70 +205,79 @@ function renderEvents(arr) {
   });
 }
 
-
-
-
 getClickedItemValue(type, function (value) {
-  filters.type = value; 
+  filters.type = value;
   const filteredEvents = filterEvents(updatedEventsStore, filters);
   renderEvents(filteredEvents);
   listType.textContent = filters.type;
-  if(filters.type == ""){
-  listType.textContent = "Any type";
+  if (filters.type == "") {
+    listType.textContent = "Any type";
   }
 });
 getClickedItemValue(date, function (value) {
-  filters.date = value; 
+  filters.date = value;
   const filteredEvents = filterEvents(updatedEventsStore, filters);
   renderEvents(filteredEvents);
   listDate.textContent = filters.date;
-  if(filters.date == ""){
-  listDate.textContent = "Any date";
+  if (filters.date == "") {
+    listDate.textContent = "Any date";
   }
 });
 
 getClickedItemValue(category, function (value) {
   filters.category = value;
   const filteredEvents = filterEvents(updatedEventsStore, filters);
-  renderEvents(filteredEvents); 
+  renderEvents(filteredEvents);
   listCategory.textContent = filters.category;
-  if(filters.category == ""){
-  listCategory.textContent = "Any category";
+  if (filters.category == "") {
+    listCategory.textContent = "Any category";
   }
 });
 
 getClickedItemValue(distance, function (value) {
-  filters.distance = value; 
+  filters.distance = value;
   const filteredEvents = filterEvents(updatedEventsStore, filters);
-  renderEvents(filteredEvents); 
+  renderEvents(filteredEvents);
   listDistance.textContent = filters.distance;
-  if(filters.distance == ""){
-  listDistance.textContent = "Any distance";
+  if (filters.distance == "") {
+    listDistance.textContent = "Any distance";
   }
 });
 
 function formatDate(date) {
-  const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", ];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const day = date.getDate();
   const month = months[date.getMonth()];
   const hours = date.getHours();
   const minutes = date.getMinutes();
   const ampm = hours >= 12 ? "PM" : "AM";
-  const formattedHours = hours % 12 || 12; 
-  const formattedMinutes = minutes < 10 ? "0" + minutes : minutes; 
+  const formattedHours = hours % 12 || 12;
+  const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
   return `${month} ${day}, ${formattedHours}:${formattedMinutes} ${ampm}`;
 }
 
 function updateEventsWithFormattedDates(events) {
   return events.map((event) => {
-     const date = formatDate(event.date);
-         return {
-          ...event, 
-          date,
-         };
+    const date = formatDate(event.date);
+    return {
+      ...event,
+      date,
+    };
   });
 }
 
 const updatedEventsStore = updateEventsWithFormattedDates(eventsStore);
 renderEvents(updatedEventsStore);
-

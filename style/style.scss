@@ -390,7 +390,7 @@ footer {
   }
 }
 
-.main_header{
+.main_header {
   width: 1200px;
 }
 .events_title_page_events {
@@ -426,24 +426,29 @@ footer {
 
 .events_filter {
   display: flex;
+  flex-wrap: wrap;
+
   gap: 20px;
-  margin-bottom: 116px;
+  // margin-bottom: 116px;
   align-items: center;
-  // overflow-x: auto;          
-  // white-space: nowrap; 
+  // overflow-x: auto;
+  // white-space: nowrap;
   position: relative;
   margin-top: 15px;
-  
+  z-index: 1;
+  margin-bottom: 56px;
+
   .list_filter {
-    overflow-x: auto; 
+    overflow-x: auto;
     position: absolute;
+    // white-space: pre-wrap;
     top: 45px;
     left: 15px;
     background-color: #f6f7f8;
     border: none;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    z-index: 999;
+    z-index: 9999;
     &_show {
       transition: all 1s ease-out;
       display: none;
@@ -455,15 +460,12 @@ footer {
       cursor: pointer;
     }
   }
-  
-
 }
 
 .events_filter_list {
   position: relative;
- 
- 
-   & h1{
+
+  & h1 {
     font-size: 14px;
     line-height: 14px;
     padding: 16px 40px 16px 16px;
@@ -471,22 +473,22 @@ footer {
     border: none;
     border-radius: 40px;
     position: relative;
-  
   }
-  & .logo_up_category , .logo_up_date , .logo_up_type , .logo_up_distance{
-      width: 14px;
-      height: 14px;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      transition: transform 0.3s ease;
+  & .logo_up_category,
+  .logo_up_date,
+  .logo_up_type,
+  .logo_up_distance {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: transform 0.3s ease;
   }
-  & .logo_down{
-  transform: rotate(180deg);
-
+  & .logo_down {
+    transform: rotate(180deg);
   }
-  }
-
+}
 
 .list_event {
   width: 1200px;
@@ -523,55 +525,51 @@ footer {
   & p {
     line-height: 18px;
   }
- 
 }
-#distance{
+#distance {
   width: 100px;
 }
-#type{
+#type {
   width: 75px;
 }
-#category{
+#category {
   width: 105px;
 }
-#date{
+#date {
   width: 80px;
 }
 
-
-
-@media (max-width: 1600px){
-  .footer_content{
+@media (max-width: 1600px) {
+  .footer_content {
     max-width: 1200px;
   }
   .footer_title::after {
     max-width: 1200px;
   }
-
 }
-@media (max-width:1280px){
-  .header{
+@media (max-width: 1280px) {
+  .header {
     max-width: 1200px;
   }
-  .main{
+  .main {
     max-width: 1000px;
   }
-  .join::before{
+  .join::before {
     right: -400px;
   }
-  .footer_content{
+  .footer_content {
     max-width: 1000px;
   }
-  .footer_list{
+  .footer_list {
     gap: 270px;
   }
   .footer_title::after {
     max-width: 1000px;
   }
-  .events{
+  .events {
     max-width: 1000px;
   }
-  .events_list{
+  .events_list {
     grid-template-columns: repeat(3, 1fr);
   }
   .meetup {
@@ -579,37 +577,36 @@ footer {
   }
   .meetup_content {
     max-width: 600px;
-}
-.categories_list{
-  flex-wrap: wrap;
-}
-.maps{
-  display: none;
-}
-.main_header {
-  width: 1000px;
-}
-.list_event {
-  width: 1000px;
-}
+  }
+  .categories_list {
+    flex-wrap: wrap;
+  }
+  .maps {
+    display: none;
+  }
+  .main_header {
+    width: 1000px;
+  }
+  .list_event {
+    width: 1000px;
+  }
 }
 
 @media (max-width: 1024px) {
-  
   .main {
     margin: 0 auto;
     max-width: 900px;
   }
-  .join::before{
+  .join::before {
     right: -340px;
   }
-  .events_list{
-    grid-template-columns: repeat(3 , 1fr)
+  .events_list {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .meetup_content{
+  .meetup_content {
     max-width: 450px;
   }
-  .footer_content{
+  .footer_content {
     max-width: 900px;
   }
   .main_header {
@@ -623,13 +620,13 @@ footer {
   }
 }
 
-@media(max-width: 768px){
+@media (max-width: 768px) {
   .header {
     width: 760px;
-        padding: 10px;
+    padding: 10px;
 
     &_right {
-         font-size: 10px;
+      font-size: 10px;
       &_img {
         & img {
           width: 100px;
@@ -661,62 +658,61 @@ footer {
     left: 292px;
   }
   .main {
-       max-width: 600px;
+    max-width: 600px;
   }
   .join::before {
     right: 0;
     bottom: -250px;
-}
-.join{
-  margin-bottom: 270px;
-  max-width: 500px;
-}
-.events{
-  max-width: 600px;
-}
-.events_list {
-  grid-template-columns: repeat(2, 1fr);
-}
-.meetup {
-  width: 600px;
-  padding-top: 240px;
-  &::before{
-    top: 20px;
-    right:146px ;
   }
-}
-.footer_content {
-  max-width: 600px;
-}
-.footer_title::after {
-  max-width: 600px;
-}
-.footer_list {
-  gap: 70px;
-}
-.follow_us {
-  &_content {
-    gap: 10px;
+  .join {
+    margin-bottom: 270px;
+    max-width: 500px;
+  }
+  .events {
+    max-width: 600px;
+  }
+  .events_list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .meetup {
+    width: 600px;
+    padding-top: 240px;
+    &::before {
+      top: 20px;
+      right: 146px;
+    }
+  }
+  .footer_content {
+    max-width: 600px;
+  }
+  .footer_title::after {
+    max-width: 600px;
+  }
+  .footer_list {
+    gap: 70px;
+  }
+  .follow_us {
+    &_content {
+      gap: 10px;
 
-    &_left {
+      &_left {
+        display: none;
+      }
+    }
+  }
+
+  .footer_menu ul {
+    & li:nth-child(n + 2) a {
       display: none;
     }
   }
-}
-
-.footer_menu ul {
-  & li:nth-child(n + 2) a {
-    display: none;
+  .main_header {
+    width: 600px;
+  }
+  .list_event {
+    width: 600px;
   }
 }
-.main_header {
-  width: 600px;
-}
-.list_event {
-  width: 600px;
-}
-}
-
 
 @media (max-width: 440px) {
   .header {
@@ -908,9 +904,8 @@ footer {
       margin-bottom: 10px;
     }
   }
- 
+
   .categories_list {
-   
     display: grid;
     grid-template-columns: repeat(2, 135px);
     gap: 25px;
@@ -997,22 +992,18 @@ footer {
   #list_title {
     font-size: 14px;
   }
- 
- 
+
   .events_filter {
-    & h1 {
-      font-size: 10px;
-      padding: 10px 35px 10px 10px;
-      gap: 10px;
-    }
-    &_list h1::before {
+    .logo_up_distance,
+    .logo_up_date,
+    .logo_up_category,
+    .logo_up_type {
       top: 10px;
     }
   }
   .list_filter {
     top: 35px;
   }
- 
 
   .new_event {
     max-width: 370px;
@@ -1041,10 +1032,10 @@ footer {
   }
   .main_header {
     width: 400px;
-}
-.list_event {
-  width: 400px;
-}
+  }
+  .list_event {
+    width: 400px;
+  }
 }
 
 .events_card:hover {
@@ -1059,5 +1050,4 @@ footer {
 }
 .btn_more:hover {
   font-weight: 600;
-
 }

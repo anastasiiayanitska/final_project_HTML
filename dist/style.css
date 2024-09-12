@@ -536,11 +536,13 @@ footer {
 
 .events_filter {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
-  margin-bottom: 116px;
   align-items: center;
   position: relative;
   margin-top: 15px;
+  z-index: 1;
+  margin-bottom: 56px;
 }
 .events_filter .list_filter {
   overflow-x: auto;
@@ -551,7 +553,7 @@ footer {
   border: none;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  z-index: 999;
+  z-index: 9999;
 }
 .events_filter .list_filter_show {
   transition: all 1s ease-out;
@@ -1067,12 +1069,7 @@ footer {
   #list_title {
     font-size: 14px;
   }
-  .events_filter h1 {
-    font-size: 10px;
-    padding: 10px 35px 10px 10px;
-    gap: 10px;
-  }
-  .events_filter_list h1::before {
+  .events_filter .logo_up_distance, .events_filter .logo_up_date, .events_filter .logo_up_category, .events_filter .logo_up_type {
     top: 10px;
   }
   .list_filter {
