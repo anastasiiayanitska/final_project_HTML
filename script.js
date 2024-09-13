@@ -84,7 +84,7 @@ const logoDate = document.querySelector(".logo_up_date ");
 const logoType = document.querySelector(".logo_up_type ");
 const logoDistance = document.querySelector(".logo_up_distance ");
 
-const filters = {
+let filters = {
   category: "",
   distance: "",
   type: "",
@@ -97,20 +97,7 @@ const listDate = document.querySelector("#list_date");
 const listCategory = document.querySelector("#list_category");
 const btnReset = document.querySelector(".reset_filter");
 
-btnReset.addEventListener("click", () => {
-  listType.textContent = "Any type";
-  listDate.textContent = "Any date";
-  listCategory.textContent = "Any category";
-  listDistance.textContent = "Any distance";
-  filters = {
-    category: "",
-    distance: "",
-    type: "",
-    date: "",
-  };
 
-  renderEvents(updatedEventsStore);
-});
 
 categoryBtn.addEventListener("click", () => {
   category.classList.toggle("list_filter_show");
@@ -245,6 +232,21 @@ getClickedItemValue(distance, function (value) {
   }
 });
 
+btnReset.addEventListener("click", function() {
+  listType.textContent = "Any type";
+  listDate.textContent = "Any date";
+  listCategory.textContent = "Any category";
+  listDistance.textContent = "Any distance";
+  // filters = {
+  //   category: "",
+  //   distance: "",
+  //   type: "",
+  //   date: "",
+  // };
+  const filteredEvents = filterEvents(updatedEventsStore, filters);
+  renderEvents(updatedEventsStore);
+});
+const filteredEvents = ""
 function formatDate(date) {
   const months = [
     "Jan",
